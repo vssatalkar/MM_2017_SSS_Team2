@@ -2,7 +2,7 @@ import setuptools
 
 if __name__ == "__main__":
     setuptools.setup(
-        name='MM2',
+        name='MM_2017_SSS_Team2',
         version="0.1.1",
         description='First group project of MM2',
         author='Dibyendu Mondal',
