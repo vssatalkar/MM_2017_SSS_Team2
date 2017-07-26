@@ -53,7 +53,7 @@ def test_minimum_image_distance(a, b, c, expected):
     """
     Function to test the minimum image distance function in the source code
     """
-    assert mm2.minimum_image_distance.minimum_image_distance(a, b, c) == expected
+    assert mm2.mc_modules.minimum_image_distance(a, b, c) == expected
     return
 
 testdata_rij = np.arange(0.5, 2, 0.5)
@@ -61,7 +61,7 @@ testdata_rij2 = testdata_rij**2
 len_testdata_rij = len(testdata_rij)
 testdata_lennard_jones = []
 for i_data in range(len_testdata_rij):
-	testdata_lennard_jones.append((testdata_rij2[i_data], mm2.minimum_image_distance.lennard_jones_potential(testdata_rij2[i_data])))
+	testdata_lennard_jones.append((testdata_rij2[i_data], mm2.mc_modules.lennard_jones_potential(testdata_rij2[i_data])))
 
 @pytest.mark.parametrize("a,expected", testdata_lennard_jones)
 def test_lennard_jones(a, expected):
@@ -69,9 +69,9 @@ def test_lennard_jones(a, expected):
     Function to test the lennard jones function in the source code;x
     """
     if a < 1.0:
-        assert mm2.minimum_image_distance.lennard_jones_potential(a) > 0
+        assert mm2.mc_modules.lennard_jones_potential(a) > 0
     elif a == 1.0:
-        assert mm2.minimum_image_distance.lennard_jones_potential(a) == 0
+        assert mm2.mc_modules.lennard_jones_potential(a) == 0
     else:
-        assert mm2.minimum_image_distance.lennard_jones_potential(a) < 0
+        assert mm2.mc_modules.lennard_jones_potential(a) < 0
     return
