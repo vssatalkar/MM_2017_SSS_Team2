@@ -1,0 +1,13 @@
+"""
+conversion factors between real and reduced units
+"""
+
+
+# Reduced properties are denoted with an * after the variable name
+L* = L / sigma 					# length
+row* = N * row**3 / volume 			# density
+U* = U / epsilon 				# energy
+P* = P * sigma**3 / epsilon 			# pressure
+T* = kB * T / epsilon 				# temperature
+V* = V / sigma**3 				# volume
+t* = t * (epsilon / (m * sigma**2))**(0.5) 	# time
