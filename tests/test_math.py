@@ -36,3 +36,23 @@ def test_min():
 def test_max():
     assert mm2.math.max(3, 4) == 4
     assert mm2.math.max(4, 4) == 4
+
+import numpy as np
+import os
+#box_length = 10.
+#min_image_distance_testdata = [
+#    (np.array([1., 1., 1.]), np.array([2., 2., 2.]), box_length, 3.),
+#    (np.array([0., 0., 0.]), np.array([2., 2., 2.]), box_length, 12.),
+#    (np.array([1., 1., 1.]), np.array([9., 9., 9.]), box_length, 12.)
+#]
+# r_i, r_j, box_length, minImageDist2
+testdata_minimum_image_distance_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'testdata_minimum_image_distance.npy')
+testdata_minimum_image_distance = np.load(testdata_minimum_image_distance_path)
+@pytest.mark.parametrize("a,b,c,expected", testdata_minimum_image_distance)
+def test_minimum_image_distance(a, b, c, expected):
+    """
+    Function to test the minimum image distance function in the source code
+    """
+    assert mm2.minimum_image_distance.minimum_image_distance(a, b, c) == expected
+    return
+
